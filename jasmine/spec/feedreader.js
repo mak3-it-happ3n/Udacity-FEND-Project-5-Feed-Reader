@@ -26,7 +26,6 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
@@ -69,10 +68,23 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+          it('changes visibility', function() {
+
+            let body = document.querySelector('body');
+            let icon = document.querySelector('.menu-icon-link');
+
+            //1st click:
+            icon.click();
+            expect(body.classList.contains('menu-hidden')).toBe(false);
+
+
+
+          });
 
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -81,10 +93,19 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 
+    });
+
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+
+
+    });
+
+
 }());
