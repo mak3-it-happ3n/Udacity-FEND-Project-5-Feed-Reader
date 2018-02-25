@@ -69,13 +69,14 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
           it('changes visibility', function() {
-
             let body = document.querySelector('body');
             let icon = document.querySelector('.menu-icon-link');
-
             //1st click:
             icon.click();
             expect(body.classList.contains('menu-hidden')).toBe(false);
+            //2nd click:
+            icon.click();
+            expect(body.classList.contains('menu-hidden')).toBe(true);
 
 
 
