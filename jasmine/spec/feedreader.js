@@ -77,11 +77,7 @@ $(function() {
             //2nd click:
             icon.click();
             expect(body.classList.contains('menu-hidden')).toBe(true);
-
-
-
           });
-
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
@@ -93,6 +89,21 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+         beforeEach(function(done) {
+           loadFeed(function() {
+             done();
+           });
+         });
+
+         it('are displayed', function(done) {
+           let feed = document.querySelector('.feed');
+
+           // up to this point it seems OK
+           
+           expect(document.querySelector('.feed')).innerHTML.toBe("");
+           done();
+
+         })
 
     });
 
