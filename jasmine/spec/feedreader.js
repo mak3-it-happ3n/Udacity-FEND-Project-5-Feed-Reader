@@ -32,6 +32,15 @@ $(function() {
          * and that the URL is not empty.
          */
 
+         it('are defined', function() {
+           for (let i = 0; i<allFeeds.length; i++) {
+             expect(allFeeds[i].url).toBeDefined();
+             expect(allFeeds[i].url).not.toBe("");
+           };
+         });
+         
+
+
          // my function here
 
         /* TODO: Write a test that loops through each feed
