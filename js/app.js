@@ -43,7 +43,8 @@ function init() {
  * which will be called after everything has run successfully.
  */
 
-let feedElements = 0; //status of loading <-- own function!
+let feedElements = 0; //status of loading
+let feedHeadline = ""; //blank headline before feed loads
 
  function loadFeed(id, cb) {
      var feedUrl = allFeeds[id].url,
@@ -74,13 +75,10 @@ let feedElements = 0; //status of loading <-- own function!
                      container.append(entryTemplate(entry));
                  });
 
-
-
-
-
                  if (cb) {
                      cb();
-                     feedElements = document.querySelector('.feed').children.length; // set feedElements to number of .feed-container items
+                     feedElements = document.querySelector('.feed').children.length; // set feedElements to number of entries in .feed-container
+                     feedHeadline = allFeeds[id].name; //updates feedHeadline
                  }
                },
        error: function (result, status, err){

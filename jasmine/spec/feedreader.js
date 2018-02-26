@@ -89,22 +89,16 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-
          beforeEach(function(done) {
-           init(function() {
+           init(function() { //loadFeed is called by the init function
              done();
            });
          });
 
-
          it('are more than 0', function(done) {
-           // let feed = document.querySelector('.feed');
-           // up to this point it seems OK
-           expect(feedElements).not.toBe(0);
+           expect(feedElements).not.toBe(0); //checks if elements are still 0
            done();
-
          });
-
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
@@ -114,10 +108,15 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         beforeEach(function(done) {
+           init(function() { //loadFeed is called by the init function
+             done();
+           });
+         });
 
-
-
+         it('updates the content', function(done){
+           expect(feedHeadline).not.toBe(""); //checks if headline is still empy
+           done();
+         });
     });
-
-
 }());
