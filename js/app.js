@@ -42,6 +42,9 @@ function init() {
  * This function all supports a callback as the second parameter
  * which will be called after everything has run successfully.
  */
+
+let feedElements = 0; //status of loading <-- own function!
+
  function loadFeed(id, cb) {
      var feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
@@ -71,8 +74,13 @@ function init() {
                      container.append(entryTemplate(entry));
                  });
 
+
+
+
+
                  if (cb) {
                      cb();
+                     feedElements = document.querySelector('.feed').children.length; // set feedElements to number of .feed-container items
                  }
                },
        error: function (result, status, err){

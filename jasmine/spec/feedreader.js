@@ -89,21 +89,21 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
          beforeEach(function(done) {
-           loadFeed(function() {
+           init(function() {
              done();
            });
          });
 
-         it('are displayed', function(done) {
-           let feed = document.querySelector('.feed');
 
+         it('are more than 0', function(done) {
+           // let feed = document.querySelector('.feed');
            // up to this point it seems OK
-           
-           expect(document.querySelector('.feed')).innerHTML.toBe("");
+           expect(feedElements).not.toBe(0);
            done();
 
-         })
+         });
 
     });
 
