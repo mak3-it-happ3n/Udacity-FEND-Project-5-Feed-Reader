@@ -109,11 +109,26 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         let feed1HTML;
+         let feed2HTML;
 
+         beforeEach(function(done) {
+           loadFeed(0, function() {
+             feed1HTML = document.querySelectorAll('.feed .entry')[0].innerHTML;
+              done();
+           });
+         });
 
+         beforeEach(function(done) {
+           loadFeed(1, function() {
+             feed2HTML = document.querySelectorAll('.feed .entry')[0].innerHTML;
+              done();
+           });
+         });
 
-
-
+         it('is different to previous', function(done) {
+           expect(feed1HTML == feed2HTML).toBe(false);
+           done();
+         });
        });
-
 });
