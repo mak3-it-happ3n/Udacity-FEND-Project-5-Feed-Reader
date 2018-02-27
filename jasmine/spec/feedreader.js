@@ -109,19 +109,20 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * (loadFeed() is asynchronous.)
          */
-         let feed1HTML;
-         let feed2HTML;
+
+         let feed1HTML; //inner HTML of 1st feed's 1st entry will be stored here
+         let feed2HTML; //inner HTML of 2nd feed's 1st entry will be stored here
 
          beforeEach(function(done) {
            loadFeed(0, function() {
-             feed1HTML = document.querySelectorAll('.feed .entry')[0].innerHTML;
+             feed1HTML = document.querySelectorAll('.feed .entry')[0].innerHTML; //stores 1st feed's first entry's HTML
               done();
            });
          });
 
          beforeEach(function(done) {
            loadFeed(1, function() {
-             feed2HTML = document.querySelectorAll('.feed .entry')[0].innerHTML;
+             feed2HTML = document.querySelectorAll('.feed .entry')[0].innerHTML; //stores 2nd feed's first entry's HTML
               done();
            });
          });
