@@ -90,33 +90,30 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
          beforeEach(function(done) {
-           init(function() { //loadFeed is called by the init function
-             done();
+           loadFeed(0, function() {
+              done();
            });
          });
 
          it('are more than 0', function(done) {
-           expect(feedElements).not.toBe(0); //checks if elements are still 0
+           expect(document.querySelectorAll('.feed .entry').length > 0).toBe(true);
            done();
          });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+
     describe('New Feed Selection', function() {
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-         beforeEach(function(done) {
-           init(function() { //loadFeed is called by the init function
-             done();
-           });
-         });
 
-         it('updates the content', function(done){
-           expect(feedHeadline).not.toBe(""); //checks if headline is still empy
-           done();
-         });
-    });
-}());
+
+
+
+
+       });
+
+});

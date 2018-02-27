@@ -43,8 +43,8 @@ function init() {
  * which will be called after everything has run successfully.
  */
 
-let feedElements = 0; //status of loading
-let feedHeadline = ""; //blank headline before feed loads
+let feedHTML;
+
 
  function loadFeed(id, cb) {
      var feedUrl = allFeeds[id].url,
@@ -75,9 +75,10 @@ let feedHeadline = ""; //blank headline before feed loads
                      container.append(entryTemplate(entry));
                  });
 
+            
+
                  if (cb) {
                      cb();
-                     feedElements = document.querySelector('.feed').children.length; // set feedElements to number of entries in .feed-container
                      feedHeadline = allFeeds[id].name; //updates feedHeadline
                  }
                },
