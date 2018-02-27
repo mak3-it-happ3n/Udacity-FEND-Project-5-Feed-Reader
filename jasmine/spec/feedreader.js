@@ -116,14 +116,10 @@ $(function() {
          beforeEach(function(done) {
            loadFeed(0, function() {
              feed1HTML = document.querySelectorAll('.feed .entry')[0].innerHTML; //stores 1st feed's first entry's HTML
-              done();
-           });
-         });
-
-         beforeEach(function(done) {
-           loadFeed(1, function() {
-             feed2HTML = document.querySelectorAll('.feed .entry')[0].innerHTML; //stores 2nd feed's first entry's HTML
-              done();
+             loadFeed(1, function(){
+               feed2HTML = document.querySelectorAll('.feed .entry')[0].innerHTML; //stores 2nd feed's first entry's HTML
+               done();
+             });
            });
          });
 
